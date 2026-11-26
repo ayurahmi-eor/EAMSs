@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>EAMS — Enterprise Attendance Management System</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+<script src="https://unpkg.com/html5-qrcode@2.3.8/html5-qrcode.min.js"></script>
+<link rel="stylesheet" href="assets/css/style.css">
+<link rel="stylesheet" href="assets/css/responsive.css">
+</head>
+<body>
+
+<!-- ============ LOGIN ============ -->
+<div id="loginScreen" class="login-wrap">
+  <div class="login-card">
+    <div class="brand"><span class="brand-badge">EAMS</span>
+      <h1>Enterprise Attendance</h1>
+      <p>Smart Employee Attendance • Face Photo • QR Verification</p>
+    </div>
+    <form id="loginForm">
+      <label>Username</label>
+      <input id="loginUser" autocomplete="username" required placeholder="mis. hrd">
+      <label>Password</label>
+      <input id="loginPass" type="password" required placeholder="••••••••">
+      <button class="btn-grad w100" type="submit">Masuk Sistem</button>
+      <div class="demo-box">
+        <b>Akun demo</b> (password sama dengan username):<br>
+        <code>superadmin</code> • <code>hrd</code> • <code>manager</code> • <code>employee</code> • <code>auditor</code>
+      </div>
+    </form>
+  </div>
+</div>
+
+<!-- ============ APP SHELL ============ -->
+<div id="shell" class="shell" hidden>
+  <aside id="sidebar" class="sidebar">
+    <div class="side-brand">
+      <span class="logo-dot"></span>
+      <div><b>EAMS</b><small>Enterprise Administration</small></div>
+    </div>
+    <div class="side-online"><span class="dot ok"></span> Online</div>
+    <nav id="sideNav"></nav>
+  </aside>
+
+  <div class="main">
+    <header class="topbar">
+      <button id="btnToggle" class="icon-btn">☰</button>
+      <div class="clock"><span id="clockTime">--:--:--</span><small id="clockDate"></small></div>
+      <div class="top-right">
+        <div class="search-mini"><input id="globalSearch" placeholder="Cari karyawan..."></div>
+        <button id="btnBell" class="icon-btn">🔔<span id="bellCount" class="bell-badge" hidden>0</span></button>
+        <div class="user-chip" id="userChip"><span id="userAvatar"></span><span id="userName"></span></div>
+      </div>
+    </header>
+    <main id="view"></main>
+  </div>
+</div>
+
+<div id="modalRoot"></div>
+<div id="toastRoot"></div>
+
+<script src="assets/js/storage.js"></script>
+<script src="assets/js/seed.js"></script>
+<script src="assets/js/app.js"></script>
+<script src="assets/js/modules.js"></script>
+<script src="assets/js/face-qr.js"></script>
+</body>
+</html>
